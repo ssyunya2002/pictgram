@@ -14,5 +14,8 @@ Rails.application.routes.draw do
   resources :topics
   #resourcesだけだとtopics/indexの/indexが/:idと見なされてshowアクションに繋がってしまうのでその前にルーティングを設定
 
+  get 'favorites/index'
+  post '/favorites', to: 'favorites#create'
+  delete '/favorites', to: 'favorites#destroy'
 
 end
