@@ -22,6 +22,20 @@
             <p class="topic-text">
               <%= topic.description %>
             </p>
+            <p class="comment-header">コメント</p>
+            <% @comments.each do |c| %>
+              <p class="topic-text">
+                <%= c.content %>
+              </p>
+            <% end %>
+            <%= form_for :comment, url: comments_path do |f| %>
+              <div class="form-group">
+                <% f.label :content, class: "text-black" %>
+                <%= f.text_field :content, class: "form-control" %>
+                <br>
+              </div>
+              <%= f.submit 'コメントする', class: "btn-block btn-black" %>
+            <% end %>
           </div>
         </div>
       </div>
